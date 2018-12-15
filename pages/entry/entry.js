@@ -1,4 +1,4 @@
-// entry.js
+//详情页面
 
 const toolbar = [
   '../../images/nav/download.png', '../../images/nav/fav.png',
