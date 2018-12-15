@@ -1,0 +1,37 @@
+{
+  "pages":[
+    "pages/list/list",
+    "pages/mine/mine",
+    "pages/new/new",
+    "pages/entry/entry",
+    "pages/aboutme/aboutme"
+  ],
+  "window":{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#5dd259",
+    "navigationBarTitleText": "养生手册",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#eceff4"
+  },
+  "tabBar": {
+    "color": "#858585",
+    "selectedColor": "#39b5de",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list":[
+      {
+        "pagePath": "pages/list/list",
+        "iconPath": "images/icons/btn-healthy-inactive.png",
+        "selectedIconPath": "images/icons/btn-healthy.png",
+        "text": "养生手册"
+      },
+      {
+        "pagePath": "pages/aboutme/aboutme",
+        "iconPath": "images/icons/btn-profile-inactive.png",
+        "selectedIconPath": "images/icons/btn-profile.png",
+        "text": "关于我们"
+      }
+    ]
+  },
+  "debug": true
+}

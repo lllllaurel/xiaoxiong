@@ -1,0 +1,7 @@
+.about{margin: 20px 24px; color: grey;font: 14px/1.4 Tahoma,Helvetica,Arial,"\5b8b\4f53",sans-serif}
+.in-img {width: 124px;height: 110px;}
+.about-wei {text-align: center;}
+.about-img {width: 150px;height: 150px;margin: 20px auto 0;border-radius: 20px;}
+.about-title {margin: 10px auto 20px auto;}
+.about-email {margin-top: 20px;}
+.in-img {width: 125px;height: 125px;}
