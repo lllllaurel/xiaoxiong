@@ -4,7 +4,7 @@ const toolbar = [
   '../../images/nav/download.png', '../../images/nav/fav.png',
   '../../images/nav/share.png', '../../images/nav/comment.png',
 ];
-var remoteurl = 'https://jujiaodata.com/getdetail';
+var remoteurl = getApp().globalData.rootUrl+'getdetail';
 var testurl = 'http://localhost:8000/getdetail';
 var WxParse = require('../../wxParse/wxParse.js');
 const app = getApp();

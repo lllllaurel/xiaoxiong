@@ -1,6 +1,6 @@
 const config = require("../../config");
 var WxParse = require('../../wxParse/wxParse.js');
-var remoteurl = 'https://jujiaodata.com/getlist';
+var remoteurl = getApp().globalData.rootUrl+'getlist';
 var testurl = 'http://localhost:8000/getlist';
 var app = getApp();
 
