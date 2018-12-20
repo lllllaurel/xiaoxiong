@@ -1,9 +1,8 @@
 const config = require("../../config");
 var WxParse = require('../../wxParse/wxParse.js');
-var remoteurl = getApp().globalData.rootUrl+'getlist';
-var testurl = 'http://localhost:8000/getlist';
+var url = getApp().globalData.rootUrl+'getlist';
 var app = getApp();
-
+var searchValue='';
 Page({
 
   data: {
@@ -11,16 +10,15 @@ Page({
     diaries: [],
     // 加载中提示
     hidden: true,
-    // 是否显示loading
-    // showLoading: false,
     // loading提示语
     loadingMessage: '',
     // 提示非Wi-Fi环境
     firstReminder:1,
     lastid:0,
-    once:5,
+    once:10,
     height:'',
-    confirmHidden:true
+    confirmHidden:true,
+    backBtnShow:"none",
   },
 
   /**
@@ -38,25 +36,21 @@ Page({
     //显示出加载中的提示
     this.setData({loadHidden:false})
     this.getDiaries();
-    // wx.showLoading({
-    //   title: '请选择地点',
-    // })
-    // setTimeout(function () {
-    //   wx.hideLoading()
-    // }, 2000)
   },
 
   /**
    * 获取文章列表
    * 目前为本地缓存数据 + 本地假数据
-   * TODO 从服务端拉取
    */
   getDiaries() {
     var that = this;
     let last = that.data.lastid;
     let one = that.data.once;
+    if (last < 0) {
+      return false;
+    };
     wx.request({
-      url: remoteurl,
+      url: url,
       data: {lastid:last+one, once:one},
       header: {
         'Content-Type': 'application/json'
@@ -77,7 +71,7 @@ Page({
         let tempArr = res.data;
         let arr = that.data.diaries;
         for (let i = 0; i < tempArr.length; i++) {
-          tempArr[i].cover = remoteurl + '/' + tempArr[i].cover;
+          tempArr[i].cover = url + '/' + tempArr[i].cover;
         }
         arr.push(...tempArr);
         //拼装封面url
@@ -109,23 +103,61 @@ Page({
 
   // 加载更多
   loadMore: function(event){
-    var that = this
-    //let last = that.data.diaries.length
-    let last = that.data.lastid
-    let one = that.data.once;    
+    // var that = this
+    // let last = that.data.lastid
+    // let one = that.data.once;    
 
-    wx.getNetworkType({
-      success: function(res) {
-        var networkType = res.networkType // 返回网络类型2g，3g，4g，wifi
+    // wx.getNetworkType({
+    //   success: function(res) {
+    //     var networkType = res.networkType // 返回网络类型2g，3g，4g，wifi
 
-        if(networkType!='wifi'&&that.data.firstReminder){
-           that.setData({confirmHidden:false, firstReminder:false})
-        }
-      }
-    })
+    //     if(networkType!='wifi'&&that.data.firstReminder){
+    //        that.setData({confirmHidden:false, firstReminder:false})
+    //     }
+    //   }
+    // })
     this.getDiaries();
   },
-    modalChange: function(){
-      this.setData({confirmHidden:true})
-    }
+  modalChange: function(){
+    this.setData({confirmHidden:true})
+  },
+  // 获取搜索条关键字
+  searchValueInput: function (e) {
+    var value = e.detail.value;
+    this.setData({
+      searchValue: value,
+    });
+  },
+  // 搜索
+  fetchInfo: function (e) {
+    var that = this;
+    let lastid = that.data.lastid;
+    wx.request({
+      url: getApp().globalData.rootUrl+'search',
+      method: 'get',
+      data: { keyword: that.data.searchValue},
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        let tempArr = res.data;
+        for (let i = 0; i < tempArr.length; i++) {
+          tempArr[i].cover = url + '/' + tempArr[i].cover;
+        };
+        that.setData({ diaries: tempArr, lastid: -999, backBtnShow: "block"});
+      },
+      fail: function (e) {
+        wx.showToast({
+          title: '网络异常！',
+          duration: 2000
+        });
+      },
+    });
+  },
+  // 返回重置列表页
+  backToMainList:function(e){
+    var that = this;
+    that.setData({lastid: 0, diaries:[]});
+    that.loadMore();
+  }
 })

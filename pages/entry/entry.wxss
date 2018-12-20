@@ -1,14 +1,36 @@
 .wxParse-h2{
-  padding-left: 10rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
   margin-bottom: 1em;
+  margin-top: 1.5em;
+  font-size: 20px;
+}
+.article-body {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
 }
 .article-body .wxParse-p{
   line-height: 1.5em;
   padding-left: 7rpx;
   padding-right: 7rpx;
-}
-.article-body .wxParse-p:first-child{
+  text-align: justify;
+  text-justify: inter-ideograph;
   text-indent: 2em;
+  font-size: 16px;
+}
+.article-body image {
+  max-width: 300px;
+  display: block;
+  margin: auto;
+}
+.source {
+  padding-left: 30rpx;
+}
+.category {
+  padding-left: 30rpx;
+}
+.article-date {
+  padding-left: 30rpx;
 }
 .source .wxParse-inline{
   margin-top: 2em;

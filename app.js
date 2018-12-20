@@ -103,7 +103,9 @@ App({
     // 用户信息
     userInfo: null,
 
-    rootUrl: '**',
+    rootUrl:***,
+    // rootUrl: 'https://jujiaodata.com/',
+    // rootUrl: 'http://localhost:8000/',
   }
 
 })

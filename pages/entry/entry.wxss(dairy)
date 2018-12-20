@@ -1,0 +1,30 @@
+.wxParse-h2{
+  padding-left: 10rpx;
+  margin-bottom: 1em;
+}
+.article-body .wxParse-p{
+  line-height: 1.5em;
+  padding-left: 7rpx;
+  padding-right: 7rpx;
+}
+.article-body .wxParse-p:first-child{
+  text-indent: 2em;
+}
+.source .wxParse-inline{
+  margin-top: 2em;
+  color: grey;
+  float: left;
+}
+.category .wxParse-inline{
+  color: grey;
+  float: left;
+}
+.article-date .wxParse-inline{
+  margin-bottom: 2em;
+  color: grey;
+  float: left;
+}
+button {
+  background-color: #5dd259;
+  color: white;
+}
