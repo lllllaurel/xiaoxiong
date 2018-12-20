@@ -9,8 +9,8 @@
   "window":{
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#5dd259",
-    "navigationBarTitleText": "养生手册",
-    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "聚焦养生",
+    "navigationBarTextStyle": "black",
     "backgroundColor": "#eceff4"
   },
   "tabBar": {

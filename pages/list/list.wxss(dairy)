@@ -3,13 +3,6 @@
 .item-container {
   margin: 10rpx 20rpx;
   position: relative;
-  border-bottom: 1px solid #E5E7ED;
-}
-.item-container image {
-  /* width: 100px; */
-  margin: 10rpx 20rpx;
-  width: 33%;
-  float: left;
 }
 .cover {
   width: 100%;
@@ -23,21 +16,20 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 20rpx;
-  float: right;
-  width: 60%;
+  border-bottom: 1px solid #E5E7ED;
 }
 .desc .right {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .right image{
   display: block;
   width: 60rpx;
   height: 60rpx;
   border-radius: 30rpx;
 }
+
 /**added*/
 .search{
   width: 80%;
@@ -45,7 +37,7 @@
 }
 .search_arr {
   border: 1px solid white;
-  border-radius: 10rpx;
+  border-radius: 15rpx;
   margin-left: 20rpx;
   background-color: white;
   height: 2em;
@@ -78,6 +70,8 @@
   display: flex;
   flex-direction: row;
   background-color:#5dd259;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 .searchcion {
   margin: 10rpx 10rpx 10rpx 10rpx;
@@ -88,3 +82,4 @@
   height: 20px;
   text-align: center;
 }
+

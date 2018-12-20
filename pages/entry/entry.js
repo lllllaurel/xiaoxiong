@@ -32,8 +32,7 @@ Page({
     var that = this;
     let wxprocessor= WxParse;
     let contentid = params.id
-    //WxParse.wxParse('newHtml', 'html', newHtml, that, 5);
-
+    
     wx.request({
       url: remoteurl,
       data: {contentid:contentid},

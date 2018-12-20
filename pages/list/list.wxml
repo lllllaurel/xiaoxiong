@@ -1,4 +1,15 @@
 <!--list.wxml-->
+<view class='page_row'>
+  <view class="search">
+    <view class="df search_arr">
+      <icon class="searchcion" size='20' type='search'></icon>
+      <input type='text' confirm-type='search' class="" placeholder="请输入关键字" value="{{searchValue}}"
+      bindinput="searchValueInput"/>
+    </view>
+  </view>
+  <view class='search-btn' bindtap='fetchInfo'>搜索</view>
+  <view class='back-btn' style='display:{{backBtnShow}}' bindtap='backToMainList'>返回</view>
+</view>
 
 <scroll-view scroll-y="true" style="height:{{height}}px" bindscrolltolower='loadMore'>
   <view wx:for="{{diaries}}" wx:key="{{item}}" wx:for-index="idx" class="item-container" bindtap="showDetail" id="{{item.content_id}}">
