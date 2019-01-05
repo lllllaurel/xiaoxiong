@@ -46,7 +46,43 @@
   color: grey;
   float: left;
 }
-button {
+.share-ns{
   background-color: #5dd259;
   color: white;
+}
+.share-ns::after{
+  border:none;
+}
+.button-group{
+  height: 50px;
+  width: 100%;
+}
+.share{
+  background-color: #5dd259;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  color: white;
+  float: left;
+  margin-left: 5%;
+  width: 45%;
+}
+.share::after{
+  border: none;
+}
+.verticle-line{
+  float:left;
+  width: 1px;
+  height: 30px; 
+  background: #FFFFFF;
+}
+.readmore{
+  background-color: #5dd259;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  float: left;
+  width: 45%;
+  color: white;
+}
+.readmore::after{
+  border: none;
 }

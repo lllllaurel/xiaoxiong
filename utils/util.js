@@ -34,7 +34,24 @@ function listToMatrix(list, elementPerSubArray) {
   return matrix;
 }
 
+/*获取当前页带参数的url*/
+function getCurrentPageUrlWithArgs(pageObj) {
+  var url = pageObj.route    //当前页面url
+  var options = pageObj.options    //如果要获取url中所带的参数可以查看options
+
+  //拼接url的参数
+  var urlWithArgs = url + '?'
+  for (var key in options) {
+  var value = options[key]
+  urlWithArgs += key + '=' + value + '&'
+  }
+  urlWithArgs = urlWithArgs.substring(0, urlWithArgs.length - 1)
+
+  return urlWithArgs
+}
+
 module.exports = {
   formatTime: formatTime,
   listToMatrix: listToMatrix,
+  getCurrentPageUrlWithArgs: getCurrentPageUrlWithArgs,
 }

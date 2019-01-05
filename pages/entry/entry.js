@@ -7,12 +7,16 @@ const toolbar = [
 var remoteurl = getApp().globalData.rootUrl+'getdetail';
 var testurl = 'http://localhost:8000/getdetail';
 var WxParse = require('../../wxParse/wxParse.js');
+var utils = require('../../utils/util.js')
 const app = getApp();
 
 Page({
   data: {
     // 当前日志详情
     diary: undefined,
+
+    // 判断是否来自分享
+    isshare: 0,
 
     // 右上角工具栏
     toolbar: toolbar,
@@ -87,6 +91,9 @@ Page({
   // },
 
   onLoad: function(params) {
+    if(params.isshare==1){
+      this.setData({ 'isshare':params.isshare });
+    }
     this.getDiary(params);
     // this.getMediaList();
   },
@@ -94,6 +101,7 @@ Page({
   onHide: function() {
   },
 
+  /*分享给好友*/
   onShareAppMessage(res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
@@ -101,7 +109,15 @@ Page({
     }
     return {
       // title: '自定义转发标题',
-      // path: '/page/user?id=123'
+      path: utils.getCurrentPageUrlWithArgs(this) + '&isshare=1',
     }
+  },
+  /**
+  * 回到首页(分享的时候)
+  */
+  backHome: function () {
+    wx.reLaunch({
+      url: '/pages/list/list'
+    })
   }
 })

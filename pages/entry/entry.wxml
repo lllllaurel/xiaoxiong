@@ -2,4 +2,9 @@
 
 <import src="../../wxParse/wxParse.wxml"/>
 <template is="wxParse" data="{{wxParseData:parsed.nodes}}"/>
-<button open-type="share">分享给好友</button>
+<button wx:if="{{!isshare}}" open-type="share" class='share-ns'>分享给好友</button>
+<view wx:else class='button-group'>
+  <button open-type="share" class='share'>分享给好友</button>
+  <view class='verticle-line'></view>
+  <button class='readmore' bindtap='backHome'>更多文章</button>
+</view>
